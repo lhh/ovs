@@ -30,6 +30,7 @@ require {
         type sysfs_t;
         type systemd_unit_file_t;
         type tun_tap_device_t;
+        type spc_t;
 
 @begin_dpdk@
         type hugetlbfs_t;
@@ -95,6 +96,7 @@ allow openvswitch_t openvswitch_tmp_t:unix_stream_socket { write getattr read co
 allow openvswitch_t openvswitch_var_run_t:dir { getattr read open search write remove_name add_name lock };
 allow openvswitch_t openvswitch_var_run_t:file { map open read write getattr create unlink };
 allow openvswitch_t tun_tap_device_t:chr_file { read write getattr open ioctl };
+allow openvswitch_t spc_t:unix_stream_socket { read write };
 
 @begin_dpdk@
 allow openvswitch_t hugetlbfs_t:dir { write remove_name add_name lock read };
